@@ -1,11 +1,6 @@
 Options -Indexes
 IndexIgnore */*
 
-Allow From 213.230.125.242
-Allow From 213.230.125.243
-Allow From 127.0.0.1
-Deny From All
-
 Options FollowSymLinks
 
 RewriteCond %{REQUEST_FILENAME} !-f
