@@ -1,0 +1,342 @@
+<?php 
+
+use yii\helpers\Html;
+?>
+
+<section id="center" class="center_home">
+		<div class="header">
+			<div class="info">
+					
+						<div class="content">
+							<h2>RASH-MILK</h2>
+							<h2>RASH-MILK</h2>
+						</div>
+					
+				
+				
+			</div>
+	  	</div>
+	  <!-- photo block end -->
+	  <!-- Video begin -->
+		<!-- <header class="hero">
+		  <video
+			autoplay
+			loop
+			muted
+			playsinline
+			preload="metadata"
+			poster="your-poster.jpg"
+		  >
+			<source src="videos/video.mp4" type="video/mp4">
+			 Your browser does not support the video tag.
+		  </video>
+		
+		  <div class="content">
+			<h1>Your Website Title</h1>
+			<p>Your tagline or short description goes here.</p>
+		  </div>
+		</header> -->
+</section>
+
+<section id="trend" class="pt-5 pb-5">
+ <div class="container-xl">
+   <div class="row row-cols-1 row-cols-md-3 trend_1">
+      <div class="col">
+	    <div class="trend_1_left">
+		  <img src="/image/1.png" alt="abc" class="img-fluid">
+		</div>
+	  </div>
+	  <div class="col">
+	    <div class="trend_1_mid text-end">
+		  <img src="/image/39.png"  alt="...">
+		  <h1 class="mt-4 text-center"><?= Yii::t('app', "text1") ?></h1>
+		  <p class="mt-3 text-center"><?= Yii::t('app', "text2") ?></p>
+		</div>
+	  </div>
+	  <div class="col">
+	    <div class="trend_1_right">
+		   <img src="/image/2.png" alt="abc" class="img-fluid">
+		</div>
+	  </div>
+   </div>
+ </div>
+</section>
+
+<section id="about_h" class="pt-5 pb-5 shadow">
+ <div class="container-xl">
+   <div class="row about_h1">
+     <div class="col-md-5">
+	   <div class="about_h1_left bg_light p-4">
+	     <img src="/image/3.jpg" alt="abc" class="img-fluid">
+		 <p class="mt-3 mb-2"><?= Yii::t('app', "text5") ?></p>
+		 <b class="d-block fs-4"><?= Yii::t('app', "text4") ?></b>
+	   </div>
+	 </div>
+	 <div class="col-md-7">
+	   <div class="about_h1_right">
+	    <h1 class="mb-4"><?= Yii::t('app', "text3") ?></h1>
+		<div class="about_h1_right_inner row row-cols-1 row-cols-md-2 row-cols-sm-2">
+          <div class="col">
+		    <div class="about_h1_right_inner_left">
+			    <img src="/image/4.png" alt="abc" class="img-fluid">
+				<b class="d-block mt-3 fs-4"><?= Yii::t('app', "text6") ?></b>
+				<p class="mb-0 mt-2"><?= Yii::t('app', "text7") ?></p>
+				<hr class="line mb-0">
+			</div>
+		  </div>	
+		  <div class="col">
+		    <div class="about_h1_right_inner_left">
+			    <img src="/image/5.png" alt="abc" class="img-fluid">
+				<b class="d-block mt-3 fs-4"><?= Yii::t('app', "text8") ?></b>
+				<p class="mb-0 mt-2"><?= Yii::t('app', "text9") ?></p>
+				<hr class="line mb-0">
+			</div>
+		  </div>	
+		</div>
+	   </div>
+	 </div>
+   </div>
+ </div>
+</section>
+
+<section id="nature">
+   <div class="nature_m bg_back">
+     <div class="container-xl">
+  <div class="row nature_1">
+     <div class="col-md-12">
+	    <h1 class="text-white"><?= Yii::t('app', "text10") ?></h1>
+		<p class="mb-0 w-50 text-light"><?= Yii::t('app', "text11") ?></p>
+	 </div>
+  </div>
+ </div>
+   </div>   
+ </section>
+
+<section id="shop_h" class="pt-5 pb-5 shadow">
+ <div class="container-xl">
+   <div class="row shop_h1">
+    <div class="col-md-12">
+    <?php
+    /** @var yii\web\View $this */
+    /** @var common\models\Categories[] $categories */
+    /** @var common\models\Products[] $products */
+
+    $currentLang = Yii::$app->language; // masalan: 'uz', 'ru', 'en'
+    ?>
+
+    <!-- Tabs -->
+    <ul class="nav nav-tabs mb-0 flex-wrap fs-5 tab_click border-0 justify-content-center">
+        <?php foreach ($categories as $index => $cat): ?>
+            <?php
+            $name = $cat->{"name_" . $currentLang} ?? $cat->name_en;
+            $tabId = "profile" . ($index + 1);
+            ?>
+            <li class="nav-item <?= $index > 0 ? 'mx-3' : '' ?>">
+                <a href="#<?= $tabId ?>"
+                data-bs-toggle="tab"
+                aria-expanded="<?= $index === 0 ? 'true' : 'false' ?>"
+                class="nav-link <?= $index === 0 ? 'active' : '' ?>">
+                    <span class="d-md-block"><?= Html::encode($name) ?></span>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content mt-4">
+        <?php foreach ($categories as $index => $cat): ?>
+            <?php
+            $tabId = "profile" . ($index + 1);
+            // Shu kategoriyaga tegishli mahsulotlarni olish
+            $catProducts = array_filter($products, fn($p) => $p->category_id == $cat->id);
+            ?>
+            <div class="tab-pane fade <?= $index === 0 ? 'show active' : '' ?>" id="<?= $tabId ?>">
+                <div class="row">
+                    <?php if (!empty($catProducts)): ?>
+                        <?php foreach ($catProducts as $prod): ?>
+                            <div class="col-md-3 mb-4">
+        <div class="shop_h1_inner_left h-100">
+            <div class="shop_h1_inner_left1 position-relative">
+                <div class="shop_h1_inner_left1_inner">
+                    <?php if ($prod->image): ?>
+                        <a href="#">
+                            <img src="<?= Yii::getAlias('@web/products/' . $prod->image) ?>"
+                                alt="<?= Html::encode($prod->{"name_" . $currentLang}) ?>"
+                                class="img-fluid"
+                                style="height:310px; object-fit:cover; width:100%;">
+                        </a>
+                    <?php endif; ?>
+                </div>
+                <!-- Ikonkalar -->
+                
+                <!-- Sale label -->
+                <div class="shop_h1_inner_left1_inner2 position-absolute top-0 w-100 text-end">
+                    <span class="d-inline-block bg-success text-white py-1 px-4"><?=Yii::t('app','Sale')?></span>
+                </div>
+            </div>
+            <!-- Nomi -->
+            <div class="shop_h1_inner_left2 text-center mt-3">
+                <b class="d-block fs-5">
+                    <a href="#"><?= Html::encode($prod->{"name_" . $currentLang}) ?></a>
+                </b>
+                
+            </div>
+        </div>
+    </div>
+
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <div class="col-12 text-muted fst-italic">
+                            <?= Yii::t('app', 'No products in this category') ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+
+
+        
+	</div>
+   </div>
+ </div>
+</section>
+
+<section id="spec" class="pt-5 pb-5 shadow">
+ <div class="container-xl">
+   <div class="row row-cols-1 row-cols-md-2 spec_1">
+    <div class="col">
+	  <div class="spec_1_left">
+	    <img src="/image/14.png" alt="abc" class="img-fluid">
+	  </div>
+	</div>
+	<div class="col">
+	  <div class="spec_1_right pt-4">
+	   <h3><?= Yii::t('app', "text12") ?></h3>
+	   <b class="d-block fs-1"><?= Yii::t('app', "text13") ?></b>
+	   <p class="mt-2"><?= Yii::t('app', "text14") ?></p>
+	   <ul class="mb-0 fs-5 mt-4">
+		<?= Yii::t('app', "text15") ?>
+		</ul>
+	  </div>
+	</div>
+   </div>
+ </div>
+</section>
+
+
+
+<section id="blog_h" class="pt-5 pb-5 shadow">
+<div class="container-xl">
+  <div class="goal_1 row mb-4 text-center">
+<div class="col-md-12">
+  <h1><?= Yii::t('app', "text16") ?></h1>
+   <p class="mb-0"><?= Yii::t('app', "text17") ?></p>
+</div>
+</div>
+   <div class="blog_1 row row-cols-1 row-cols-md-3">
+
+    <?php foreach ($latestNews as $news): ?>
+        <div class="col">
+            <div class="blog_1i position-relative">
+                <div class="blog_1i1">
+                    <a href="<?= \yii\helpers\Url::to(['news/view', 'id' => $news->id]) ?>">
+                        <img src="<?= Yii::getAlias('@web/news/' . $news->image) ?>"
+                             class="img-fluid"
+                             alt="<?= \yii\helpers\Html::encode($news->title_uz) ?>"
+                             style="height:250px; object-fit:cover; width:100%; border-radius:8px;">
+                    </a>
+                </div>
+                <div class="blog_1i2 position-absolute text-end w-100 pe-4">
+                    <?php
+                        $day = Yii::$app->formatter->asDate($news->created_at, 'php:d');
+                        $month = Yii::$app->formatter->asDate($news->created_at, 'php:M');
+                    ?>
+                    <h6 class="mb-0 d-inline-block bg-danger text-white p-3 rounded-3 text-center">
+                        <?= $day ?><br><?= $month ?>
+                    </h6>
+                </div>
+            </div>
+            <div class="blog_1i_last p-4 shadow">
+                <h6>
+                    <i class="bi bi-person me-1 text-info"></i> 
+                    <?= \yii\helpers\Html::encode($news->owner ?? 'Admin') ?>
+                </h6>
+                <h5 class="mt-3">
+                    <a href="<?= \yii\helpers\Url::to(['news/view', 'id' => $news->id]) ?>">
+                        <?= \yii\helpers\Html::encode($news['title_'.Yii::$app->language]) ?>
+                    </a>
+                </h5>
+                <p>
+                    <?= \yii\helpers\StringHelper::truncateWords(strip_tags($news['subtitle_'.Yii::$app->language]), 15, '...') ?>
+                </p>
+                <hr>
+                <h6 class="mb-0 fw-bold">
+                    <a href="<?= \yii\helpers\Url::to(['/site/newsopen', 'id' => $news->id]) ?>">
+                        <?= Yii::t('app', 'Read more') ?>
+                        <i class="bi bi-arrow-right float-end"></i>
+                    </a>
+                </h6>
+            </div>
+        </div>
+    <?php endforeach; ?>
+
+
+	  
+	 </div>
+</div>
+</section>
+
+<section id="support" class="pt-5 pb-5  shadow">
+ <div class="container-xl">
+   <div class="row row-cols-1 row-cols-md-2 support_1">
+   <div class="col">
+        <div class="support_1_left">
+            <h4><?= Yii::t('app', "text18") ?></h4>
+            <p class="mt-4 mb-4"><?= Yii::t('app', "text19") ?></p>
+
+            <!-- Fancybox rasm galereyasi -->
+            <div class="d-flex gap-3">
+            <a href="/certificates/1.jpg" data-fancybox="gallery" data-caption="Rasm 1">
+                <img src="/certificates/1.jpg" alt="Rasm 1" class="img-fluid rounded shadow" style="width: 120px; height: auto;">
+            </a>
+            <a href="/certificates/2.jpg" data-fancybox="gallery" data-caption="Rasm 2">
+                <img src="/certificates/2.jpg" alt="Rasm 2" class="img-fluid rounded shadow" style="width: 120px; height: auto;">
+            </a>
+            <a href="/certificates/3.jpg" data-fancybox="gallery" data-caption="Rasm 3">
+                <img src="/certificates/3.jpg" alt="Rasm 3" class="img-fluid rounded shadow" style="width: 120px; height: auto;">
+            </a>
+            </div>
+        </div>
+    </div>
+
+	<div class="col">
+	  <div class="support_1_right">
+	     <img src="/image/15.png" class="img-fluid" alt="abc">
+	  </div>
+	</div>
+   </div>
+ </div>
+</section>
+<section id="partners" class="pt-5 pb-5  shadow">
+	<div class="container-xl">
+	  
+	   <div class="col">
+		<h4>PARTNERS</h4> 
+		<div class="Marquee">
+			<div class="Marquee-content">
+			  <div class="Marquee-tag"><img src="/partners/ansor.jpg" alt=""></div>
+			  <div class="Marquee-tag"><img src="/partners/article-original.png" alt=""></div>
+			  <div class="Marquee-tag"><img src="/partners/havas.jpg" alt=""></div>
+			  <div class="Marquee-tag"><img src="/partners/korzinka.jpg" alt=""></div>
+			  <div class="Marquee-tag"><img src="/partners/uy.jpg" alt=""></div>
+			  <div class="Marquee-tag"><img src="/partners/baraka.png" alt=""></div>
+			  <div class="Marquee-tag"><img src="/partners/megapolis.jpg" alt=""></div>
+			  
+			</div>
+		  </div>
+		
+	   </div>
+	  
+	</div>
+</section>

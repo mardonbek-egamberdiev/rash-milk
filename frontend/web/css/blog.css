@@ -1,0 +1,122 @@
+/*
+Template Name: Creamy
+File: Layout CSS
+Author: TemplatesOnWeb
+Author URI: https://www.templateonweb.com/
+Licence: <a href="https://www.templateonweb.com/license">Website Template Licence</a>
+*/
+
+/*********************blog****************/
+.tags a {
+    display: block;
+    padding: 6px 15px;
+    border: 1px solid var(--border_light);
+    margin: 0px 5px 8px 0px;
+    font-size: 14px;
+    transition: 0.3s;
+	border-radius:3px;
+}
+.tags a:hover {
+    background:var(--bs-red);
+	border: 1px solid var(--bs-red);
+	color: var(--bs-white);
+}
+
+.blog_dt1 blockquote {
+    border-left: 5px solid var(--bs-red);
+    padding: 15px;
+}
+
+
+.bg_color{
+  width:30px;
+  height:30px;
+ }
+/*********************blog_end****************/
+
+/*********************shop****************/
+
+.shop_1_dt1 .nav-tabs .nav-link.active {
+    background: none;
+    color: var(--bs-red);
+    border: none;
+    border-bottom: 3px solid var(--bs-red);
+}
+.shop_1_dt1 .nav-tabs .nav-link {
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+	color: var(--bs-black);
+}
+.shop_1_dt1 .nav-tabs .nav-link:hover {
+    background: none;
+    color: var(--bs-red);
+    border: none;
+    border-bottom: 3px solid var(--bs-red);
+}
+.shop_1_dt1 .nav-tabs {
+    border-color: var(--border_light);
+}
+/*********************shop_end****************/
+
+
+
+
+
+@media screen and (max-width : 767px){
+.shop_1_right{
+  margin-top:15px;
+ }
+.shop_1_right1_right{
+  margin-top:15px;
+ }
+.shop_1_dt{
+  margin-top:15px;
+ }
+.blog_1_right{
+  margin-top:15px;
+ }
+.blog_1_right1_left{
+   margin-top:8px;
+   margin-bottom:8px;
+ }
+.blog_dt{
+  margin-top:15px;
+ }
+.blog_dt1_inner1_right {
+  text-align:left!important;
+  margin-top:10px;
+ }
+.blog_dt1_inner_right {
+  text-align:left!important;
+  margin-top:10px;
+ }
+ }
+
+
+@media (min-width:576px) and (max-width:767px) {
+
+ }
+ 
+@media (min-width:768px) and (max-width:991px) {
+.shop_1dt1ir .button{
+   padding-left:15px!important;
+   padding-right:15px!important;
+ }
+ }
+
+@media (min-width:992px) and (max-width:1200px) {
+
+ }
+
+@media (min-width:1201px) and (max-width:1300px) {
+
+ }
+@media screen and (min-width : 1400px){
+
+ }
+
+
