@@ -48,7 +48,7 @@ AppAsset::register($this);
          <div class="offcanvas offcanvas-start offcanvas-nav" style="width: 20rem">
             <div class="offcanvas-header shadow">
 			    <a class="d-flex" href="<?= Url::to(['/']); ?>">
-			 <b class="fs-2 text-dark text-uppercase"><img src="/image/logo.png" width="30" alt=""></i> Rash-milk </b>
+			 <b class="fs-2 text-dark text-uppercase"><img src="/image/logo.png" width="80" alt=""></i> Rash-milk </b>
 	     </a>
                <img src="/image/icons-svg/x.svg" width="40" height="40" class="ms-auto" data-bs-dismiss="offcanvas" aria-label="Close" alt="Close TemplateOnweb website menu"/>
 			   
