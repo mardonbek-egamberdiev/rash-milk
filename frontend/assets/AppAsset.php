@@ -21,13 +21,14 @@ class AppAsset extends AssetBundle
         'css/checkout.css',
         'css/contact.css',
         'css/faq.css',
-        // 'css/',
-        // 'css/',
+        'css/additional.css',
+        'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css',
+        'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css',
     ];
     public $js = [
         'js/bootstrap.bundle.min.js',
         'js/theme.min.js',
-        // 'js/',
+        'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js',
         // 'js/',
         // 'js/',
     ];

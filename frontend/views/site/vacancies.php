@@ -68,10 +68,11 @@
 	 </div>
    </div>
    <div class="col-md-6">
-     <div class="faq_1r">
-	     <img src="/image/job.jpg" alt="abc" class="img-fluid">
-	 </div>
-   </div>
+        <div class="faq_1r">
+            <img src="/image/job.gif" alt="abc" class="img-fluid">
+        </div>
+    </div>
+
   </div>
  </div>
 </section>

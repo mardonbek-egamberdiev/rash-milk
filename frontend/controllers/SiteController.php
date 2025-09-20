@@ -93,10 +93,16 @@ class SiteController extends Controller
             ->orderBy(['sort_order' => SORT_ASC])
             ->all();
 
+        $partners = \common\models\Partners::find()
+        ->where(['status' => 1])
+        ->orderBy(['sort_order' => SORT_ASC])
+        ->all();
+        
         return $this->render('index', [
             'categories' => $categories,
             'products' => $products,
             'latestNews' => $latestNews,
+            'partners' => $partners,
         ]);
     }
 
@@ -137,7 +143,13 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        return $this->render('about');
+        $partners = \common\models\Partners::find()
+        ->where(['status' => 1])
+        ->orderBy(['sort_order' => SORT_ASC])
+        ->all();
+        return $this->render('about',[
+            'partners' => $partners,
+        ]);
     }
 
    
@@ -188,6 +200,25 @@ class SiteController extends Controller
         return $this->render('products', [
             'categories' => $categories,
             'products' => $products,
+        ]);
+    }
+    public function actionProductDetail($id)
+    {
+        $product = \common\models\Products::findOne($id);
+
+        if (!$product) {
+            throw new \yii\web\NotFoundHttpException("Product not found");
+        }
+
+        // Shu kategoriyadagi boshqa mahsulotlarni olish (o‘zi kiritilgan mahsulotdan tashqari)
+        $relatedProducts = \common\models\Products::find()
+            ->where(['category_id' => $product->category_id])
+            ->andWhere(['<>', 'id', $product->id])
+            ->all();
+
+        return $this->render('product_detail', [
+            'product' => $product,
+            'relatedProducts' => $relatedProducts,
         ]);
     }
 

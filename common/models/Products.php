@@ -50,6 +50,9 @@ class Products extends \yii\db\ActiveRecord
             [['name_uz', 'name_ru', 'name_en', 'image'], 'string', 'max' => 255],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categories::class, 'targetAttribute' => ['category_id' => 'id']],
             [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg, gif'],
+            [['oil', 'protein','carbohydrate','energy','weight'], 'number' ],
+            [['storage', 'package'], 'integer' ],
+            [['description_uz', 'description_ru', 'description_en'], 'string' ],
         ];
     }
 
@@ -66,6 +69,16 @@ class Products extends \yii\db\ActiveRecord
             'name_en' => Yii::t('app', 'Nomi En'),
             'image' => Yii::t('app', 'Rasm 620x620px bo\'lishi kerak!'),
             'sort_order' => Yii::t('app', 'Tartib raqami'),
+            'oil' => Yii::t('app', 'Yog\'lar'),
+            'protein' => Yii::t('app', 'Oqsillar'),
+            'carbohydrate' => Yii::t('app', 'Uglevodlar'),
+            'energy' => Yii::t('app', 'Energiyaviy miqdori'),
+            'weight' => Yii::t('app', 'Og\'irligi'),
+            'storage' => Yii::t('app', 'Saqlash muddati'),
+            'package' => Yii::t('app', 'Qadoqdagi soni'),
+            'description_uz' => Yii::t('app', 'Tarkibi_uz'),
+            'description_ru' => Yii::t('app', 'Tarkibi_ru'),
+            'description_en' => Yii::t('app', 'Tarkibi_en'),
             'status' => Yii::t('app', 'Holati'),
         ];
     }

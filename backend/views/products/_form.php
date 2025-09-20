@@ -50,7 +50,69 @@ use common\models\Categories;
                     'placeholder' => Yii::t('app', 'Enter English name')
                 ]) ?>
             </div>
+            <div class="col-md-3">
+                <?= $form->field($model, 'oil')->textInput([
+                    'maxlength' => true,
+                    'placeholder' => Yii::t('app', 'Enter English name')
+                ]) ?>
+            </div>
+            <div class="col-md-3">
+                <?= $form->field($model, 'protein')->textInput([
+                    'maxlength' => true,
+                    'placeholder' => Yii::t('app', 'Enter English name')
+                ]) ?>
+            </div>
+            <div class="col-md-3">
+                <?= $form->field($model, 'carbohydrate')->textInput([
+                    'maxlength' => true,
+                    'placeholder' => Yii::t('app', 'Enter English name')
+                ]) ?>
+            </div>
+            <div class="col-md-3">
+                <?= $form->field($model, 'energy')->textInput([
+                    'maxlength' => true,
+                    'placeholder' => Yii::t('app', 'Enter English name')
+                ]) ?>
+            </div>
 
+            <div class="col-md-4">
+                <?= $form->field($model, 'weight')->textInput([
+                    'maxlength' => true,
+                    'placeholder' => Yii::t('app', 'Enter English name')
+                ]) ?>
+            </div>
+            <div class="col-md-4">
+                <?= $form->field($model, 'storage')->textInput([
+                    'maxlength' => true,
+                    'placeholder' => Yii::t('app', 'Enter English name')
+                ]) ?>
+            </div>
+            <div class="col-md-4">
+                <?= $form->field($model, 'package')->textInput([
+                    'maxlength' => true,
+                    'placeholder' => Yii::t('app', 'Enter English name')
+                ]) ?>
+            </div>
+
+            <div class="col-md-4">
+                <?= $form->field($model, 'description_uz')->textarea([
+                    'rows' => 6,
+                    'maxlength' => true,
+                ]) ?>
+            </div>
+            <div class="col-md-4">
+                <?= $form->field($model, 'description_ru')->textarea([
+                    'rows' => 6,
+                    'maxlength' => true,
+                ]) ?>
+            </div>
+            <div class="col-md-4">
+                <?= $form->field($model, 'description_en')->textarea([
+                    'rows' => 6,
+                    'maxlength' => true,
+                ]) ?>
+            </div>
+            
             <div class="col-md-6">
             <?= $form->field($model, 'image')->widget(\kartik\file\FileInput::class, [
                 'options' => ['accept' => 'image/*'],

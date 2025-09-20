@@ -28,7 +28,7 @@ AppAsset::register($this);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans&family=Handlee&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
+	<link rel="icon" type="image/png" href="/favicon.png">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -180,10 +180,10 @@ AppAsset::register($this);
 					</span>
 				</div>
 				<ul class="mb-0 social_icon1 font_14 mt-4">
-					<li class="d-inline-block"><a href="#"><i class="bi bi-facebook"></i></a></li>
-					<li class="d-inline-block ms-1"><a href="#"><i class="bi bi-twitter"></i></a></li>
-					<li class="d-inline-block ms-1"><a href="#"><i class="bi bi-linkedin"></i></a></li>
-					<li class="d-inline-block ms-1"><a href="#"><i class="bi  bi-instagram"></i></a></li>
+					<li class="d-inline-block ms-1"><a href="https://www.instagram.com/rashmilk.uz"><i class="bi  bi-instagram"></i></a></li>
+					<li class="d-inline-block"><a href="https://www.facebook.com/rashmilkuz"><i class="bi bi-facebook"></i></a></li>
+					<li class="d-inline-block ms-1"><a href="https://t.me/rash_milk_uz"><i class="bi bi-telegram"></i></a></li>
+					<li class="d-inline-block ms-1"><a href="mailto:info@rash-milk.uz"><i class="bi bi-envelope"></i></a></li>
 					</ul>
 			</div>
 			</div>
@@ -201,13 +201,13 @@ AppAsset::register($this);
 	<div class="col-md-4">
 	  <div class="footer_bottom1_right text-end mt-1">
        <ul class="text-uppercase font_12 mb-0">
-		    <li class="d-inline-block"><a class="text-muted link" href="#"> Facebook</a></li>
+		   <li class="d-inline-block"><a class="text-muted link" href="https://www.instagram.com/rashmilk.uz"> Instagram</a></li>
+		   <li class="d-inline-block mx-2 text-muted">|</li>
+		   <li class="d-inline-block"><a class="text-muted link" href="https://www.facebook.com/rashmilkuz"> Facebook</a></li>
+		   <li class="d-inline-block mx-2 text-muted">|</li>
+			<li class="d-inline-block"><a class="text-muted link" href="https://t.me/rash_milk_uz"> Telegram</a></li>
 			<li class="d-inline-block mx-2 text-muted">|</li>
-			 <li class="d-inline-block"><a class="text-muted link" href="#"> Twitter</a></li>
-			 <li class="d-inline-block mx-2 text-muted">|</li>
-			 <li class="d-inline-block"><a class="text-muted link" href="#"> Pinterest</a></li>
-			 <li class="d-inline-block mx-2 text-muted">|</li>
-			 <li class="d-inline-block"><a class="text-muted link" href="#"> Instagram</a></li>
+			<li class="d-inline-block"><a class="text-muted link" href="mailto:info@rash-milk.uz"> Email</a></li>
 		  </ul>
 	  </div>
 	 </div>
@@ -217,6 +217,7 @@ AppAsset::register($this);
 
 <?php $this->endBody() ?>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
 </body>
 </html>
 <?php $this->endPage();

@@ -41,3 +41,10 @@ phpunit.phar
 /backend/web/index.php
 /backend/web/index-test.php
 /backend/web/robots.txt
+
+# ignore 
+/frontend/web/partners
+/frontend/web/products
+/frontend/web/videos
+/frontend/web/news
+/frontend/web/applicants

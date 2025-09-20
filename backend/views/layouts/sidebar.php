@@ -42,6 +42,7 @@ use yii\helpers\Url; ?>
                     ['label' => 'Vakansiyalar',  'icon' => 'window-maximize', 'url' => ['/vacancies']],
                     ['label' => 'Talabgorlar',  'icon' => 'users', 'url' => ['/applicants']],
                     ['label' => 'Kontaktlar',  'icon' => 'envelope', 'url' => ['/contact']],
+                    ['label' => 'Hamkorlar',  'icon' => 'handshake', 'url' => ['/partners']],
                     ['label' => 'Gii',  'icon' => 'file-code', 'url' => ['/gii']],
                     ['label' => 'Tarjimalar',  'icon' => 'globe', 'url' => ['/translate-manager']],
                     

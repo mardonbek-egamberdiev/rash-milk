@@ -62,7 +62,7 @@
             <div class="shop_h1_inner_left1 position-relative">
                 <div class="shop_h1_inner_left1_inner">
                     <?php if ($prod->image): ?>
-                        <a href="#">
+                        <a href="<?= Url::to(['/site/product-detail', 'id' => $prod->id]) ?>">
                             <img src="<?= Yii::getAlias('@web/products/' . $prod->image) ?>"
                                 alt="<?= Html::encode($prod->{"name_" . $currentLang}) ?>"
                                 class="img-fluid"
@@ -80,7 +80,7 @@
             <!-- Nomi -->
             <div class="shop_h1_inner_left2 text-center mt-3">
                 <b class="d-block fs-5">
-                    <a href="#"><?= Html::encode($prod->{"name_" . $currentLang}) ?></a>
+                    <a href="<?= Url::to(['/site/product-detail', 'id' => $prod->id]) ?>"><?= Html::encode($prod->{"name_" . $currentLang}) ?></a>
                 </b>
                 
             </div>

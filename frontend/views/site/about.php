@@ -63,15 +63,13 @@
             <!-- Poster rasm -->
             <a 
                 data-fancybox 
-                href="https://youtu.be/GhhAPY-Sgsk" 
+                href="/image/45.png" 
                 class="d-block position-relative">
                 
                 <img src="/image/45.png" alt="abc" class="img-fluid rounded-3 shadow" />
 
                 <!-- Play tugmasi -->
-                <span class="play-btn position-absolute top-50 start-50 translate-middle">
-                <i class="bi bi-play-circle-fill"></i>
-                </span>
+                
             </a>
         </div>
 
@@ -111,4 +109,26 @@
 	  </div>
    </div>
  </div>
+</section>
+<section id="partners" class="pt-5 pb-5  shadow">
+	<div class="container-xl">
+	  
+	   <div class="col">
+		<h4><?=Yii::t('app', 'PARTNERS')?></h4> 
+		<div class="Marquee">
+      <div class="Marquee-content">
+          <?php foreach ($partners as $partner): ?>
+              <div class="Marquee-tag">
+                  <img src="<?= Yii::getAlias('@web/partners/' . $partner->image) ?>" 
+                      alt="<?= Html::encode($partner->name) ?>" 
+                      height="200">
+              </div>
+          <?php endforeach; ?>
+      </div>
+
+		  </div>
+		
+	   </div>
+	  
+	</div>
 </section>

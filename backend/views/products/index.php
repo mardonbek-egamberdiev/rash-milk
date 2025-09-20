@@ -8,6 +8,7 @@ use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 use yii\helpers\ArrayHelper;
+use yii\bootstrap4\LinkPager;
 
 /** @var yii\web\View $this */
 /** @var common\models\ProductsSearch $searchModel */
@@ -42,6 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'pager' => ['class' => LinkPager::class],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -71,9 +73,17 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 
             'name_uz',
-            'name_ru',
-            'name_en',
+            // 'name_ru',
+            // 'name_en',
+
             //'sort_order',
+            'protein',
+            'carbohydrate',
+            'energy',
+            'weight',
+            'storage',
+            'package',
+            'oil',
             [
                 'attribute' => 'status',
                 'format' => 'raw',
