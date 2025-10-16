@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function($model) {
                     $frontendBase = Yii::getAlias('@frontendUrl'); // aliasni ishlatamiz
                     if ($model->image && file_exists(Yii::getAlias('@frontend/web/products/' . $model->image))) {
-                        $imgUrl = $frontendBase . '/products/' . $model->image;
+                        $imgUrl = $frontendBase . '.uz/products/' . $model->image;
                         return Html::img($imgUrl, ['class' => 'product-thumb']);
                     }
                     return Html::tag('span', Yii::t('app', 'No image'), ['class' => 'text-muted']);

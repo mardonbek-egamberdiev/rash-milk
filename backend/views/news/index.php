@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function($model) {
                     $frontendBase = Yii::getAlias('@frontendUrl'); 
                     if ($model->image && file_exists(Yii::getAlias('@frontend/web/news/' . $model->image))) {
-                        $imgUrl = $frontendBase . '/news/' . $model->image;
+                        $imgUrl = $frontendBase . '.uz/news/' . $model->image;
                         return Html::img($imgUrl, [
                             'style' => 'width:80px; height:60px; object-fit:cover; border-radius:6px;'
                         ]);
