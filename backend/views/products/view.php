@@ -35,16 +35,18 @@ $this->params['breadcrumbs'][] = $this->title;
                         $frontendBase = Yii::getAlias('@frontendUrl'); // aliasni ishlatamiz
                         if ($model->image && file_exists(Yii::getAlias('@frontend/web/products/' . $model->image))) {
                             $imgUrl = $frontendBase . '.uz/products/' . $model->image;
-                            echo Html::img($imgUrl, ['class' => 'product-thumb']);
+                            echo "<img src='".$imgUrl."' 
+                            class='img-fluid rounded shadow-sm'
+                            alt='<?= Html::encode($model->name_uz) ?>'
+                            style='max-width:250px; transition: transform 0.3s;'
+                            onmouseover='this.style.transform='scale(1.2)'' 
+                            onmouseout='this.style.transform='scale(1)''>"; 
+                            
+                            
                         }
                         echo Html::tag('span', Yii::t('app', 'No image'), ['class' => 'text-muted']);    
                     ?>
-                    <img src="<?= Yii::getAlias('@frontendUrl'. '/products/' . $model->image) ?>" 
-                         class="img-fluid rounded shadow-sm"
-                         alt="<?= Html::encode($model->name_uz) ?>"
-                         style="max-width:250px; transition: transform 0.3s;"
-                         onmouseover="this.style.transform='scale(1.2)'" 
-                         onmouseout="this.style.transform='scale(1)'">
+                    
                 <?php else: ?>
                     <div class="text-muted fst-italic"><?= Yii::t('app', 'No image uploaded') ?></div>
                 <?php endif; ?>
