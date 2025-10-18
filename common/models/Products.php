@@ -94,7 +94,7 @@ class Products extends \yii\db\ActiveRecord
         }
 
         // upload papkasi (universal)
-        $uploadPath = Yii::getAlias('@webroot/products/');
+        $uploadPath = Yii::getAlias('@frontend/web/products/');
 
         // papka bo'lmasa yaratamiz
         if (!is_dir($uploadPath)) {
