@@ -20,8 +20,10 @@ use common\models\Categories;
         <div class="card-body">
 
             <?php $form = ActiveForm::begin([
-                'options' => ['class' => 'row g-3'],
+                'options' => ['class' => 'row g-3',
                 'enctype' => 'multipart/form-data'
+            ],
+                
             ]); ?>
 
             <div class="col-md-6">
