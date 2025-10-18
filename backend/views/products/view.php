@@ -31,7 +31,15 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="row">
             <div class="col-md-4 text-center">
                 <?php if ($model->image): ?>
-                    <img src="<?= Yii::getAlias('@frontendUrl'. '\.uz/products/' . $model->image) ?>" 
+                    <?php
+                        $frontendBase = Yii::getAlias('@frontendUrl'); // aliasni ishlatamiz
+                        if ($model->image && file_exists(Yii::getAlias('@frontend/web/products/' . $model->image))) {
+                            $imgUrl = $frontendBase . '.uz/products/' . $model->image;
+                            echo Html::img($imgUrl, ['class' => 'product-thumb']);
+                        }
+                        echo Html::tag('span', Yii::t('app', 'No image'), ['class' => 'text-muted']);    
+                    ?>
+                    <img src="<?= Yii::getAlias('@frontendUrl'. '/products/' . $model->image) ?>" 
                          class="img-fluid rounded shadow-sm"
                          alt="<?= Html::encode($model->name_uz) ?>"
                          style="max-width:250px; transition: transform 0.3s;"
