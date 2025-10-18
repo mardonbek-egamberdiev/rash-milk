@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="row">
             <div class="col-md-4 text-center">
                 <?php if ($model->image): ?>
-                    <img src="<?= Yii::getAlias('@frontendUrl'. '/products/' . $model->image) ?>" 
+                    <img src="<?= Yii::getAlias('@frontendUrl'. '.uz/products/' . $model->image) ?>" 
                          class="img-fluid rounded shadow-sm"
                          alt="<?= Html::encode($model->name_uz) ?>"
                          style="max-width:250px; transition: transform 0.3s;"
