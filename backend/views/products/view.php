@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             
                             
                         }
-                        echo Html::tag('span', Yii::t('app', 'No image'), ['class' => 'text-muted']);    
+                        
                     ?>
                     
                 <?php else: ?>
