@@ -57,6 +57,7 @@ use common\models\Categories;
                 <?= $form->field($model, 'oil')->textInput([
                     'maxlength' => true,
                     'type' => 'number',
+                    'step' => '0.01',
                     'min' => 0,
                     'placeholder' => Yii::t('app', 'Enter English name')
                 ]) ?>
@@ -65,6 +66,7 @@ use common\models\Categories;
                 <?= $form->field($model, 'protein')->textInput([
                     'maxlength' => true,
                     'type' => 'number',
+                    'step' => '0.01',
                     'min' => 0,
                     'placeholder' => Yii::t('app', 'Enter English name')
                 ]) ?>
@@ -73,6 +75,7 @@ use common\models\Categories;
                 <?= $form->field($model, 'carbohydrate')->textInput([
                     'maxlength' => true,
                     'type' => 'number',
+                    'step' => '0.01',
                     'min' => 0,
                     'placeholder' => Yii::t('app', 'Enter English name')
                 ]) ?>
@@ -81,6 +84,7 @@ use common\models\Categories;
                 <?= $form->field($model, 'energy')->textInput([
                     'maxlength' => true,
                     'type' => 'number',
+                    'step' => '0.01',
                     'min' => 0,
                     'placeholder' => Yii::t('app', 'Enter English name')
                 ]) ?>
@@ -90,6 +94,7 @@ use common\models\Categories;
                 <?= $form->field($model, 'weight')->textInput([
                     'maxlength' => true,
                     'type' => 'number',
+                    'step' => '0.01',
                     'min' => 0,
                     'placeholder' => Yii::t('app', 'Enter English name')
                 ]) ?>
@@ -98,6 +103,7 @@ use common\models\Categories;
                 <?= $form->field($model, 'storage')->textInput([
                     'maxlength' => true,
                     'type' => 'number',
+                    'step' => '0.01',
                     'min' => 0,
                     'placeholder' => Yii::t('app', 'Enter English name')
                 ]) ?>
@@ -106,6 +112,7 @@ use common\models\Categories;
                 <?= $form->field($model, 'package')->textInput([
                     'maxlength' => true,
                     'type' => 'number',
+                    'step' => '0.01',
                     'min' => 0,
                     'placeholder' => Yii::t('app', 'Enter English name')
                 ]) ?>
@@ -145,6 +152,7 @@ use common\models\Categories;
             <div class="col-md-3">
                 <?= $form->field($model, 'sort_order')->textInput([
                     'type' => 'number',
+                    'step' => '0.01',
                     'min' => 0
                 ]) ?>
             </div>
