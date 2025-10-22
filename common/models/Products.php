@@ -84,44 +84,26 @@ class Products extends \yii\db\ActiveRecord
     }
     public function upload()
     {
-        // agar fayl yuklanmagan bo'lsa, eski rasm qolsin (yangi record bo'lsa yoki file yuklanmagan bo'lsa)
-        if (!$this->imageFile) {
-            // agar eski atribut mavjud bo'lsa uni saqlaymiz, aks holda bo'sh qoldiramiz
-            if (!empty($this->oldAttributes['image'])) {
-                $this->image = $this->oldAttributes['image'];
+        if ($this->imageFile) {
+            $uploadPath = Yii::getAlias('@frontend/web/products/');
+
+            // eski faylni o‘chirib tashlash
+            if ($this->oldAttributes['image'] && file_exists($uploadPath . $this->oldAttributes['image'])) {
+                @unlink($uploadPath . $this->oldAttributes['image']);
             }
-            return true;
-        }
 
-        // upload papkasi (universal)
-        $uploadPath = Yii::getAlias('@frontend/web/products/');
-
-        // papka bo'lmasa yaratamiz
-        if (!is_dir($uploadPath)) {
-            @mkdir($uploadPath, 0775, true);
-        }
-
-        // eski faylni o'chirish, agar mavjud bo'lsa va yangi fayl yuklanyapti
-        if (!empty($this->oldAttributes['image'])) {
-            $oldFile = $uploadPath . $this->oldAttributes['image'];
-            if (file_exists($oldFile) && is_file($oldFile)) {
-                @unlink($oldFile);
+            $fileName = uniqid() . '.' . $this->imageFile->extension;
+            if ($this->imageFile->saveAs($uploadPath . $fileName)) {
+                $this->image = $fileName;
+                return true;
             }
+            return false;
         }
 
-        // noyob nom yaratish
-        $fileName = uniqid(time() . '_', true) . '.' . $this->imageFile->extension;
-
-        // faylni saqlash
-        if ($this->imageFile->saveAs($uploadPath . $fileName)) {
-            $this->image = $fileName; // DBdagi image ustuniga fayl nomi yoziladi
-            return true;
-        }
-
-        // agar saqlash muvaffaqiyatsiz bo'lsa, xato qaytaramiz
-        return false;
+        // agar yangi fayl yuklanmagan bo‘lsa, eski rasm qolsin
+        $this->image = $this->oldAttributes['image'];
+        return true;
     }
-
 
     /**
      * Gets query for [[Category]].
