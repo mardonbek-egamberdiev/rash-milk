@@ -1,15 +1,11 @@
 Options -Indexes
 IndexIgnore */*
+Options FollowSymLinks
 
-Options +FollowSymLinks
-RewriteEngine On
-
-# Foydalanuvchi so‘rov qilgan fayl yoki papka mavjud bo‘lmasa
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteEngine On
 
-# --- ADMIN yo‘nalishlari uchun ---
-RewriteRule ^admin/?(.*)$ backend/web/index.php/$1 [L,PT]
-
-# --- FRONTEND uchun ---
-RewriteRule ^(.*)$ frontend/web/index.php/$1 [L,PT]
+RewriteRule ^admin(/.+)?$ backend/web/$1 [L,PT]
+RewriteRule ^admin/(.+)?$ backend/web/$1 [L,PT]
+RewriteRule ^(.+)?$ frontend/web/$1
