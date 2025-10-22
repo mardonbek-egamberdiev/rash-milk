@@ -87,23 +87,34 @@ class Products extends \yii\db\ActiveRecord
         if ($this->imageFile) {
             $uploadPath = Yii::getAlias('@frontend/web/products/');
 
-            // eski faylni o‘chirib tashlash
-            if ($this->oldAttributes['image'] && file_exists($uploadPath . $this->oldAttributes['image'])) {
-                @unlink($uploadPath . $this->oldAttributes['image']);
+            // Faqat eski yozuv bo‘lsa eski faylni o‘chir
+            if (!$this->isNewRecord && !empty($this->oldAttributes['image'])) {
+                $oldImage = $uploadPath . $this->oldAttributes['image'];
+                if (file_exists($oldImage)) {
+                    @unlink($oldImage);
+                }
             }
 
+            // Yangi fayl nomini yaratish
             $fileName = uniqid() . '.' . $this->imageFile->extension;
+
+            // Faylni saqlash
             if ($this->imageFile->saveAs($uploadPath . $fileName)) {
                 $this->image = $fileName;
                 return true;
             }
+
             return false;
         }
 
-        // agar yangi fayl yuklanmagan bo‘lsa, eski rasm qolsin
-        $this->image = $this->oldAttributes['image'];
+        // Agar yangi fayl yuklanmagan bo‘lsa, eski rasm saqlansin
+        if (!$this->isNewRecord && !empty($this->oldAttributes['image'])) {
+            $this->image = $this->oldAttributes['image'];
+        }
+
         return true;
     }
+
 
     /**
      * Gets query for [[Category]].
