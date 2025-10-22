@@ -11,7 +11,26 @@ $this->title = 'RASH-MILK';
 
         <p class="lead">Siz tizimga muvaffaqiyatli kirdinggiz!</p>
 
-        
+        <?php
+use yii\helpers\Html;
+?>
+
+<div class="cache-clear">
+    <?= Html::a('🧹 Keshni tozalash', ['site/clear-cache'], [
+        'class' => 'btn btn-danger',
+        'data' => [
+            'confirm' => 'Keshni tozalashga ishonchingiz komilmi?',
+            'method' => 'post',
+        ],
+    ]) ?>
+</div>
+
+<?php if (Yii::$app->session->hasFlash('success')): ?>
+    <div class="alert alert-success mt-3">
+        <?= Yii::$app->session->getFlash('success') ?>
+    </div>
+<?php endif; ?>
+
     </div>
 
     
