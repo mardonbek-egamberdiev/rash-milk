@@ -28,7 +28,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'clear-cache' ],
+                        'actions' => ['logout', 'index' ],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -101,38 +101,6 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
-    public function actionClearCache()
-    {
-        // Barcha kechani tozalaydi
-        Yii::$app->cache->flush();
-
-        // Runtime va assets papkalarini ham tozalash (ixtiyoriy)
-        $runtimePath = Yii::getAlias('@app/runtime/cache');
-        $assetsPath = Yii::getAlias('@webroot/assets');
-
-        $this->removeDir($runtimePath);
-        $this->removeDir($assetsPath);
-
-        Yii::$app->session->setFlash('success', 'Kesh muvaffaqiyatli tozalandi ✅');
-        return $this->redirect(Yii::$app->request->referrer ?: ['site/index']);
-    }
-
-    // Yordamchi metod (papkalarni tozalash uchun)
-    private function removeDir($path)
-    {
-        if (is_dir($path)) {
-            $files = scandir($path);
-            foreach ($files as $file) {
-                if ($file != '.' && $file != '..') {
-                    $fullPath = $path . DIRECTORY_SEPARATOR . $file;
-                    if (is_dir($fullPath)) {
-                        $this->removeDir($fullPath);
-                    } else {
-                        @unlink($fullPath);
-                    }
-                }
-            }
-        }
-    }
+    
 
 }
